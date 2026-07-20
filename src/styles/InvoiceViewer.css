@@ -1,0 +1,726 @@
+/* InvoiceViewer.css */
+.invoice-viewer-wrapper {
+  min-height: 100vh;
+  background: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+}
+
+/* Header Section */
+.invoice-viewer-top-header {
+  background: linear-gradient(165deg, #1e3c72 0%, #2a5298 50%, #3a6fd9 100%);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.invoice-header-image {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.header-primary-icon {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.invoice-header-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.invoice-primary-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.invoice-description-text {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* Search Section */
+.invoice-search-container {
+  max-width: 800px;
+  margin: -40px auto 40px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-input-area {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-input-group {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-symbol {
+  position: absolute;
+  left: 15px;
+  color: #667eea;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.invoice-search-field {
+  width: 100%;
+  padding: 15px 45px 15px 50px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #f8f9fa;
+}
+
+.invoice-search-field:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.invoice-search-field::placeholder {
+  color: #6c757d;
+  font-weight: 400;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-clear-button:hover {
+  background: #e9ecef;
+  color: #dc3545;
+}
+
+.invoice-fetch-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.invoice-fetch-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.invoice-fetch-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.button-loading-indicator {
+  animation: invoice-spin-animation 1s linear infinite;
+}
+
+.button-action-symbol {
+  font-size: 1.1rem;
+}
+
+/* Error Message */
+.invoice-error-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%);
+  color: #721c24;
+  border-radius: 10px;
+  margin-top: 15px;
+  border-left: 4px solid #dc3545;
+  animation: invoice-slide-down 0.3s ease-out;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.15);
+}
+
+.error-indicator-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* PDF Preview Section */
+.invoice-preview-area {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  animation: invoice-slide-up 0.5s ease-out;
+}
+
+.preview-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.preview-title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #2c3e50;
+}
+
+.preview-title-symbol {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+.preview-title-section h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.invoice-download-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.invoice-download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.download-button-icon {
+  font-size: 1.1rem;
+}
+
+/* PDF Preview Container */
+.pdf-preview-wrapper {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-bottom: 25px;
+  min-height: 600px;
+  border: 1px solid #e9ecef;
+}
+
+.pdf-preview-iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  background: white;
+}
+
+.pdf-preview-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pdf-preview-wrapper.loading .pdf-preview-loading {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.preview-loading-content {
+  text-align: center;
+  color: #6c757d;
+}
+
+.loading-indicator-icon {
+  font-size: 3rem;
+  color: #e74c3c;
+  margin-bottom: 15px;
+}
+
+.preview-loading-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Actions Footer */
+.invoice-actions-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.secondary-action-button {
+  padding: 12px 25px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.secondary-action-button:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(108, 117, 125, 0.4);
+}
+
+.primary-action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.primary-action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.action-button-icon {
+  font-size: 1rem;
+}
+
+/* Empty State - Enhanced with Box Shadow */
+.invoice-empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 700px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: invoice-fade-in 0.8s ease-out;
+}
+
+.invoice-empty-state::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.empty-state-image {
+  font-size: 4.5rem;
+  color: #667eea;
+  margin-bottom: 25px;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.2));
+}
+
+.invoice-empty-state h3 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c3e50 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.invoice-empty-state p {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.empty-state-features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.feature-list-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f3f4;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-list-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+}
+
+.feature-list-item:hover::before {
+  opacity: 1;
+}
+
+.feature-item-icon {
+  color: #667eea;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+.feature-list-item:hover .feature-item-icon {
+  transform: scale(1.2);
+}
+
+.feature-list-item span {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Animations */
+@keyframes invoice-spin-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes invoice-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes invoice-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes invoice-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .invoice-viewer-top-header {
+    padding: 40px 20px;
+  }
+  
+  .invoice-primary-title {
+    font-size: 2.2rem;
+  }
+  
+  .invoice-description-text {
+    font-size: 1.1rem;
+  }
+  
+  .invoice-header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .search-input-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input-group {
+    min-width: auto;
+  }
+  
+  .preview-top-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .pdf-preview-iframe {
+    height: 500px;
+  }
+  
+  .invoice-actions-container {
+    flex-direction: column;
+  }
+  
+  .empty-state-features-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .invoice-empty-state {
+    padding: 40px 25px;
+    margin: 30px 20px;
+  }
+  
+  .invoice-empty-state h3 {
+    font-size: 1.6rem;
+  }
+  
+  .invoice-empty-state p {
+    font-size: 1.1rem;
+  }
+  
+  .feature-list-item {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-primary-title {
+    font-size: 1.8rem;
+  }
+  
+  .invoice-search-container {
+    margin: -30px auto 30px;
+  }
+  
+  .search-input-area {
+    padding: 20px;
+  }
+  
+  .invoice-search-field {
+    padding: 12px 40px 12px 45px;
+    font-size: 0.95rem;
+  }
+  
+  .invoice-fetch-button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .pdf-preview-iframe {
+    height: 400px;
+  }
+  
+  .preview-title-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .invoice-empty-state {
+    padding: 30px 20px;
+    margin: 20px 15px;
+  }
+  
+  .empty-state-image {
+    font-size: 3.5rem;
+  }
+  
+  .invoice-empty-state h3 {
+    font-size: 1.4rem;
+  }
+  
+  .invoice-empty-state p {
+    font-size: 1rem;
+  }
+  
+  .feature-list-item {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .feature-item-icon {
+    font-size: 1.2rem;
+  }
+  
+  .feature-list-item span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Loading States */
+.pdf-preview-wrapper.loading .pdf-preview-iframe {
+  opacity: 0.3;
+}
+
+/* Print Styles */
+@media print {
+  .invoice-viewer-top-header,
+  .invoice-search-container,
+  .preview-top-header,
+  .invoice-actions-container,
+  .invoice-empty-state {
+    display: none;
+  }
+  
+  .pdf-preview-wrapper {
+    box-shadow: none;
+    margin: 0;
+    border: none;
+  }
+  
+  .pdf-preview-iframe {
+    height: 100vh;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .invoice-search-field {
+    border-width: 3px;
+  }
+  
+  .invoice-error-container {
+    border-width: 3px;
+  }
+  
+  .invoice-empty-state {
+    border-width: 2px;
+    border-color: #2c3e50;
+  }
+  
+  .feature-list-item {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .invoice-search-field,
+  .invoice-fetch-button,
+  .invoice-download-button,
+  .feature-list-item,
+  .secondary-action-button,
+  .primary-action-button {
+    transition: none;
+  }
+  
+  .button-loading-indicator {
+    animation: none;
+  }
+  
+  .invoice-empty-state {
+    animation: none;
+  }
+}

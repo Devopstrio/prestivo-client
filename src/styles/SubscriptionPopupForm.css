@@ -1,0 +1,510 @@
+/* === Popup Overlay === */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 25, 25, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(6px);
+}
+
+.Toastify__toast-container {
+  z-index: 999999 !important;
+}
+
+/* === Popup Container === */
+.popup-form-box {
+  background: #fff;
+  color: #222;
+  width: 90%;
+  max-width: 480px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-height: 90vh;
+  /* ✅ LIMIT HEIGHT */
+  overflow-y: auto;
+}
+
+.popup-form-box {
+  scroll-behavior: smooth;
+}
+
+
+@media (max-width: 600px) {
+  .popup-form-box {
+    max-height: 92vh;
+    padding: 1.4rem;
+  }
+}
+
+
+.popup-form-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.popup-form-box::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.popup-form-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* === Close Button === */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-btn:hover {
+  color: #e63946;
+}
+
+/* === Headings === */
+.popup-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+/* === Input Fields === */
+.popup-main-form input,
+.popup-main-form select,
+.popup-main-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.popup-main-form input:focus,
+.popup-main-form select:focus,
+.popup-main-form textarea:focus {
+  border-color: #4f46e5;
+  outline: none;
+}
+
+/* === Review Section === */
+.review-box {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+/* === Buttons === */
+.form-btn-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: #fff;
+}
+
+#btn-primary {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background: #3730a3;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* === Textarea === */
+.textarea-field {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* === Icons === */
+.icon-success {
+  color: #22c55e;
+  margin-right: 0.4rem;
+}
+
+/* === Discount Text === */
+.discount-text {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* === OTP Specific Styles === */
+.otp-instruction {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.otp-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.timer-icon {
+  font-size: 0.9rem;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.otp-input {
+  width: 45px !important;
+  height: 45px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #d1d5db !important;
+  border-radius: 8px !important;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #4f46e5 !important;
+  background: #f8faff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.otp-input:not(:placeholder-shown) {
+  border-color: #10b981 !important;
+  background: #f0fdf4;
+}
+
+.resend-otp-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.resend-btn {
+  background: transparent;
+  border: none;
+  color: #4f46e5;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.resend-btn:hover:not(:disabled) {
+  color: #3730a3;
+}
+
+.resend-btn:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Center align form buttons */
+.form-btn-group[style*="center"] {
+  justify-content: center !important;
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+  .popup-form-box {
+    padding: 1.4rem;
+    width: 95%;
+  }
+
+  .popup-title {
+    font-size: 1.2rem;
+  }
+
+  .form-btn-group {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .otp-container {
+    gap: 0.3rem;
+  }
+
+  .otp-input {
+    width: 40px !important;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+.close-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary:disabled {
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  cursor: not-allowed;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+/* 🟢 Professional Info Message Styling */
+.popup-info-box {
+  background: #f9fbff;
+  border: 1px solid #d8e3ff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 6px rgba(0, 72, 255, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-info-box:hover {
+  background: #f1f6ff;
+  box-shadow: 0 3px 8px rgba(0, 72, 255, 0.15);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* 🟡 Icon Styling */
+.info-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #007bff;
+}
+
+.info-icon.warning {
+  color: #ffb300;
+}
+
+.info-icon.key {
+  color: #007bff;
+}
+
+.info-icon.mail {
+  color: #28a745;
+}
+
+/* Smooth animation for box */
+.popup-info-box {
+  animation: fadeInUp 0.4s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   TERMS & CONDITIONS (INLINE)
+================================ */
+
+.terms-inline-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  font-size: 13px;
+}
+
+/* Header */
+.terms-inline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terms-title {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* Show More / Less Button */
+.terms-toggle-btn {
+  background: transparent;
+  border: none;
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.terms-toggle-btn svg {
+  font-size: 14px;
+}
+
+.terms-toggle-btn:hover {
+  text-decoration: underline;
+}
+
+/* Content */
+.terms-inline-content {
+  margin-top: 8px;
+  max-height: 44px;
+  /* collapsed */
+  overflow: hidden;
+  color: #4b5563;
+  line-height: 1.5;
+  transition: max-height 0.3s ease;
+}
+
+.terms-inline-content.expanded {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Scrollbar (expanded only) */
+.terms-inline-content.expanded::-webkit-scrollbar {
+  width: 5px;
+}
+
+.terms-inline-content.expanded::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 4px;
+}
+
+/* Checkbox */
+.terms-checkbox-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: #374151;
+}
+
+.terms-checkbox-inline input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+/* Disabled button visual (optional) */
+button.btn-primary:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ================================
+   MOBILE OPTIMIZATION
+================================ */
+
+@media (max-width: 480px) {
+  .terms-inline-box {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .terms-title {
+    font-size: 13px;
+  }
+
+  .terms-toggle-btn {
+    font-size: 12px;
+  }
+
+  .terms-inline-content {
+    max-height: 40px;
+  }
+
+  .terms-inline-content.expanded {
+    max-height: 180px;
+  }
+}

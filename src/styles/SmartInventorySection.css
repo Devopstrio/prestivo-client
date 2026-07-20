@@ -1,0 +1,109 @@
+/* main container */
+.oneapp-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: -4rem;
+}
+
+/* heading */
+.oneapp-main-title {
+  font-size: 46px;
+  font-weight: 800;
+  color: #272727;
+  margin-bottom: 12px;
+}
+
+.oneapp-main-title span {
+  color: #0A5BFF;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 6px;
+}
+
+/* subtitle */
+.oneapp-main-subtitle {
+  font-size: 22px;
+  font-weight: 400;
+  color: #545657;
+  margin-bottom: 50px;
+}
+
+/* grid layout */
+.oneapp-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* card box */
+.oneapp-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;             /* PURE WHITE like reference */
+  padding: 24px 28px;
+  border-radius: 14px;
+  gap: 22px;
+  border: 1px solid #eef0f4;       /* borderline for exact Odoo-style look */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.oneapp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+}
+
+/* PERFECT icon sizing */
+.oneapp-icon {
+  width: 90px;                     /* Bigger (matches Odoo icon size) */
+  height: 90px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  padding: 6px;                    /* gives same spacing as reference image */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* text */
+.oneapp-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #212529;
+}
+
+.oneapp-text p {
+  font-size: 16px;
+  margin-top: 5px;
+  color: #6d6d6d;
+}
+
+/* Responsive ----------------------------------- */
+@media (max-width: 992px) {
+  .oneapp-main-title {
+    font-size: 38px;
+  }
+  .oneapp-card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .oneapp-main-title {
+    font-size: 32px;
+  }
+  .oneapp-main-subtitle {
+    font-size: 18px;
+  }
+  .oneapp-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .oneapp-card {
+    padding: 18px;
+  }
+  .oneapp-icon {
+    width: 56px;
+    height: 56px;
+  }
+}

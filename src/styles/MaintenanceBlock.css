@@ -1,0 +1,99 @@
+/* Full screen background */
+.maintenance-block-screen {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Card container */
+.maintenance-block-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 2px solid #ff4a4a;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Top Icon */
+.block-icon-container {
+  width: 80px;
+  height: 80px;
+  background: #ffe6e6;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-main-icon {
+  font-size: 40px;
+  color: #ff2727;
+}
+
+/* Title */
+.block-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c40000;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+
+.block-title-icon {
+  color: #c40000;
+}
+
+/* Description */
+.block-description {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Timing Box */
+.block-timing-box {
+  background: #fff5f5;
+  border: 1px solid #ffbcbc;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.timing-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.timing-icon {
+  color: #ff3b3b;
+  font-size: 1.1rem;
+}
+
+/* Footer text */
+.block-footer-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Smooth Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,123 @@
+/* White Background */
+.dev-login-container {
+  height: 100vh;
+  width: 100%;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Login Card */
+.dev-login-box {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 16px;
+
+  /* Strong Professional Shadow */
+  box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.12);
+
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Logo (reduced size) */
+.dev-login-logo {
+  width: 110px;
+  margin-bottom: 12px;
+}
+
+.dev-title {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 22px;
+  font-size: 22px;
+}
+
+/* Input Group */
+.dev-input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.dev-input-group input {
+  width: 100%;
+  padding: 14px 14px 14px 44px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  color: #333;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.dev-input-group input:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0px 0px 6px rgba(255, 59, 59, 0.4);
+}
+
+/* Icons inside input */
+.dev-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 18px;
+}
+
+/* Submit Button */
+.dev-login-btn {
+  width: 100%;
+  background: #ff3b3b;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: 0.25s ease;
+}
+
+.dev-login-btn:hover {
+  background: #e23333;
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .dev-login-box {
+    padding: 32px 24px;
+  }
+
+  .dev-login-logo {
+    width: 95px;
+  }
+}

@@ -1,0 +1,126 @@
+.category-page {
+  padding: 30px 20px;
+}
+
+.category-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0 35px;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Small underline bar for premium look */
+.category-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+
+/* ---------- TOP BAR ---------- */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* BEAUTIFUL SORT BOX */
+.sort-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.sort-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sort-select:hover {
+  border-color: #6a00ff;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #6a00ff;
+  box-shadow: 0 0 6px rgba(106, 0, 255, 0.25);
+}
+
+/* ---------- PRODUCT GRID (4 PER ROW) ---------- */
+.category-products-area {
+  flex: 1;
+}
+
+.category-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* ⭐ FIXED: ALWAYS 4 CARDS */
+  gap: 25px;
+}
+
+/* ---------- PRODUCT MESSAGES ---------- */
+.category-loading,
+.category-empty {
+  text-align: center;
+  font-size: 18px;
+  padding: 40px;
+  color: #555;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .category-products-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards on medium screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .category-products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
+  }
+
+  .top-bar {
+    justify-content: center;
+  }
+
+  .sort-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-products-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 card per row on mobile */
+  }
+
+  .sort-select {
+    width: 50%;
+  }
+}

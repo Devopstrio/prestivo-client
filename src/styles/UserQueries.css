@@ -1,0 +1,136 @@
+/* UserQueries.css */
+.userQueries-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userQueries-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.userQueries-faqItem {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* ⭐ PRO Hover Effects */
+.userQueries-faqItem:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: #cbd5e0;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.userQueries-question {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* ⭐ Hover on Question Text */
+.userQueries-question:hover {
+  background-color: #f7fafc;
+  padding-left: 1.75rem;
+}
+
+.userQueries-arrow {
+  font-size: 1.2rem;
+  color: #4a5568;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+/* ⭐ Arrow Hover Effect */
+.userQueries-question:hover .userQueries-arrow {
+  color: #2b6cb0;
+  transform: translateY(-1px);
+}
+
+/* Arrow Rotation on Open */
+.userQueries-faqItem.active .userQueries-arrow {
+  transform: rotate(180deg);
+  color: #3182ce;
+}
+
+.userQueries-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  color: #4a5568;
+  line-height: 1.6;
+  background-color: #f7fafc;
+}
+
+/* ⭐ Answer Section Hover */
+.userQueries-answer:hover {
+  background-color: #edf2f7;
+}
+
+.userQueries-answer.active {
+  padding: 1.5rem;
+  max-height: 500px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .userQueries-container {
+    padding: 1rem;
+  }
+
+  .userQueries-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .userQueries-question {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .userQueries-answer.active {
+    padding: 1.25rem;
+  }
+
+  .userQueries-arrow {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .userQueries-title {
+    font-size: 1.75rem;
+  }
+
+  .userQueries-question {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .userQueries-answer.active {
+    padding: 1rem;
+  }
+
+  .userQueries-question {
+    font-size: 0.9rem;
+  }
+}

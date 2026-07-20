@@ -1,0 +1,462 @@
+/* Purchase Department Dashboard Styles */ 
+:root {
+  --pd-primary-color: #1e3c72;
+  --pd-secondary-color: #2a5298;
+  --pd-accent-color: #3a6fd9;
+  --pd-success-color: #10b981;
+  --pd-warning-color: #f59e0b;
+  --pd-danger-color: #ef4444;
+  --pd-light-bg: #f8fafc;
+  --pd-card-bg: #ffffff;
+  --pd-text-dark: #1f2937;
+  --pd-text-light: #6b7280;
+  --pd-border-color: #e5e7eb;
+  --pd-sidebar-width: 280px;
+  --pd-header-height: 80px;
+  --pd-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --pd-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Enhanced Font System - Referenced from your styles */
+  --pd-font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --pd-font-size-base: 16px;
+  --pd-font-size-lg: 1.3rem;
+  --pd-font-size-xl: 1.8rem;
+  --pd-font-size-2xl: 2.1rem;
+  --pd-font-weight-normal: 500;
+  --pd-font-weight-medium: 600;
+  --pd-font-weight-semibold: 700;
+  --pd-font-weight-bold: 800;
+  --pd-line-height-tight: 1.2;
+  --pd-line-height-normal: 1.5;
+}
+
+/* Base Styles */
+.purchase-dept-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--pd-light-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Styles */
+.pd-sidebar {
+  width: var(--pd-sidebar-width);
+  background: linear-gradient(165deg, var(--pd-primary-color), var(--pd-secondary-color), var(--pd-accent-color));
+  color: white;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: var(--pd-shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-sidebar-header {
+  padding: 2rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-sidebar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.pd-menu {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex: 1;
+}
+
+.pd-menu li {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  animation: pdFadeInLeft 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+.pd-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+.pd-menu li.pd-active {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left-color: white;
+  font-weight: 600;
+  transform: translateX(5px);
+}
+
+.pd-icon {
+  margin-right: 0.75rem;
+  font-size: 1.125rem;
+  transition: transform 0.3s ease;
+}
+
+.pd-menu li:hover .pd-icon {
+  transform: scale(1.1);
+}
+
+.pd-menu li.pd-active .pd-icon {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.pd-menu li span {
+  font-size: 0.95rem;
+}
+
+/* Logout Section */
+.pd-logout-section {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.pd-logout-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.pd-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pd-logout-btn:active {
+  transform: translateY(0);
+}
+
+.pd-logout-btn.pd-logging-out {
+  background: rgba(239, 68, 68, 0.2);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pd-logout-icon {
+  margin-right: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.pd-logout-btn.pd-logging-out .pd-logout-icon {
+  animation: pdSpin 1s linear infinite;
+}
+
+/* Main Content Styles */
+.pd-main-content {
+  flex: 1;
+  margin-left: var(--pd-sidebar-width);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+.pd-header {
+  background: white;
+  padding: 0 2rem;
+  height: var(--pd-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--pd-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: pdSlideInDown 0.5s ease-out;
+}
+
+/* ONLY INCREASED FONT SIZE AND FONT FAMILY FOR MAIN TITLE */
+.pd-main-title {
+  font-size: var(--pd-font-size-xl); /* 2.4rem - Large size */
+  font-weight: var(--pd-font-weight-medium); /* 800 - Extra bold */
+  font-family: var(--pd-font-primary); /* Professional font family */
+  color: var(--pd-text-dark);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: var(--pd-line-height-tight);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pd-user-info {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: var(--pd-text-light);
+  gap: 0.5rem;
+  font-size: 0.95rem; /* Normal size */
+}
+
+.pd-user-icon {
+  font-size: 1.25rem;
+  color: var(--pd-accent-color);
+}
+
+.pd-content-area {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Tab Content Animations */
+.pd-tab-content {
+  animation: pdFadeInUp 0.5s ease-out;
+}
+
+@keyframes pdFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pdSlideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sidebar Toggle for Mobile */
+.pd-sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--pd-primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 1.25rem;
+  box-shadow: var(--pd-shadow);
+  transition: all 0.3s ease;
+}
+
+.pd-sidebar-toggle:hover {
+  background: var(--pd-secondary-color);
+  transform: scale(1.05);
+}
+
+.pd-mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: pdFadeIn 0.3s ease-out;
+}
+
+/* Animation for menu items */
+.pd-menu li:nth-child(1) { animation-delay: 0.1s; }
+.pd-menu li:nth-child(2) { animation-delay: 0.15s; }
+.pd-menu li:nth-child(3) { animation-delay: 0.2s; }
+.pd-menu li:nth-child(4) { animation-delay: 0.25s; }
+.pd-menu li:nth-child(5) { animation-delay: 0.3s; }
+.pd-menu li:nth-child(6) { animation-delay: 0.35s; }
+
+@keyframes pdFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pdFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pdSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .pd-main-content {
+    margin-left: 0;
+  }
+  
+  .pd-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .pd-sidebar.pd-open {
+    transform: translateX(0);
+  }
+  
+  .pd-sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pd-mobile-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd-content-area {
+    padding: 1rem;
+  }
+  
+  .pd-header {
+    padding: 0 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  /* Responsive adjustment for main title */
+  .pd-main-title {
+    font-size: 2rem; /* Slightly smaller on tablet */
+    line-height: 1.1;
+  }
+  
+  .pd-sidebar {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .pd-user-info {
+    align-self: flex-end;
+    font-size: 0.9rem; /* Normal size */
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-content-area {
+    padding: 0.75rem;
+  }
+  
+  .pd-sidebar-header {
+    padding: 1.5rem 1rem 0.75rem;
+  }
+  
+  .pd-menu li {
+    padding: 0.75rem 1rem;
+  }
+  
+  .pd-logout-section {
+    padding: 1rem;
+  }
+  
+  .pd-sidebar-toggle {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .pd-header {
+    padding: 0.75rem;
+  }
+  
+  /* Further responsive adjustment for main title on mobile */
+  .pd-main-title {
+    font-size: 1.8rem; /* Smaller but still prominent on mobile */
+    line-height: 1.1;
+  }
+  
+  .pd-user-info {
+    font-size: 0.85rem; /* Normal size */
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Scrollbar Styling */
+.pd-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pd-sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pd-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.pd-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .pd-menu li.pd-active {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .pd-logout-btn {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pd-sidebar,
+  .pd-menu li,
+  .pd-logout-btn,
+  .pd-header,
+  .pd-tab-content {
+    transition: none;
+    animation: none;
+  }
+  
+  .pd-menu li:hover,
+  .pd-logout-btn:hover {
+    transform: none;
+  }
+  
+  .pd-logout-btn.pd-logging-out .pd-logout-icon {
+    animation: none;
+  }
+}

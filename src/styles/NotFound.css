@@ -1,0 +1,141 @@
+/* ===============================
+   WRAPPER
+================================= */
+.notfound-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================= */
+.notfound-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 90px 20px 0 20px;
+}
+
+/* ===============================
+   TOP SECTION
+================================= */
+.notfound-top {
+  max-width: 650px;
+  margin: 0 auto;
+  margin-top: -20px;
+}
+
+.notfound-heading {
+  font-size: 44px;
+  font-weight: 700;
+  color: #3a2f2c;
+  /* Same as header background */
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.notfound-subtext {
+  font-size: 17px;
+  color: #6b5f5c;
+  /* muted brown text */
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+.notfound-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.notfound-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 🔥 Primary Gold Button */
+.notfound-btn.primary {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  box-shadow: 0 4px 14px rgba(91, 120, 170, 0.3);
+}
+
+.notfound-btn.primary:hover {
+  background: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(140, 106, 191, 0.4);
+}
+
+/* 🔥 Secondary Outline Button */
+.notfound-btn.secondary {
+  border: 2px solid #3498db;
+  color: #3498db;
+  background: transparent;
+}
+
+.notfound-btn.secondary:hover {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   BOTTOM IMAGE SECTION
+================================= */
+.notfound-bottom {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.notfound-image {
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  margin-top: -50px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 768px) {
+  .notfound-container {
+    padding: 60px 15px 0 15px;
+  }
+
+  .notfound-heading {
+    font-size: 32px;
+    margin-top: 200px;
+  }
+
+  .notfound-subtext {
+    font-size: 15px;
+  }
+
+  .notfound-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .notfound-bottom {
+    margin-top: 40px;
+  }
+}
